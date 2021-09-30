@@ -12,3 +12,15 @@ code {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+
+$body-bg: #000;
+$body-color: #111;
+
+$theme-colors: (
+  "primary": #0074d9,
+  "danger": #ff4136,
+  "custom-color": #900
+);
+
+
+@import "../node_modules/bootstrap/scss/bootstrap";
