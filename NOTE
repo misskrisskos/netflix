@@ -1,0 +1,81 @@
+migration
+---------
+dotnet tool install --global dotnet-ef
+dotnet add package Microsoft.EntityFrameworkCore.Design
+
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+
+scaffold controller
+-------------------
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet tool install -g dotnet-aspnet-codegenerator
+
+dotnet aspnet-codegenerator controller -name TodoItemsController -async -api -m TodoItem -dc TodoContext -outDir Controllers
+
+
+
+=======================================================================================
+
+appsettings.json
+----------------
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=127.0.0.1,1433;Database=TodoDb;User Id=sa;Password=P@ssw0rd;",
+    "PostgresqlConnection": "Server=127.0.0.1,1433;Database=TodoDb;User Id=sa;Password=P@ssw0rd;"
+  },
+
+=======================================================================================
+
+.csproj
+-------
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="5.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.10">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.sqlserver" Version="5.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.10">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.10" />
+  </ItemGroup>
+
+
+=======================================================================================
+
+startup.cs
+----------
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllersWithViews();
+    //services.AddDbContext<TodoContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+    services.AddDbContext<TodoContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("PostgresqlConnection")));
+    // In production, the React files will be served from this directory
+    services.AddSpaStaticFiles(configuration =>
+    {
+        configuration.RootPath = "ClientApp/build";
+    });
+}
+
+
+=========================================================================================
+PostgreSQL
+----------
+login to psql
+
+\dn
+\dt
+
+CREATE USER "todoapp" WITH PASSWORD 'P@ssw0rd';
+
+\du
+
+GRANT USAGE ON SCHEMA public TO todoapp;
+ALTER DEFAULT PRIVILEGES FOR ROLE todoapp GRANT ALL ON TABLES TO todoapp;
