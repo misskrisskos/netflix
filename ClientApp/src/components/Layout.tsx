@@ -1,12 +1,14 @@
 import * as React from 'react';
 import { Container } from 'reactstrap';
-import NavMenu from './NavMenu';
+// import NavMenu from './NavMenu';
+import NavNetflix from './NavNetflix';
 
 export default class Layout extends React.PureComponent<{}, { children?: React.ReactNode }> {
     public render() {
         return (
             <React.Fragment>
-                <NavMenu />
+                <NavNetflix />
+                {/* <NavMenu /> */}
                 <Container>
                     {this.props.children}
                 </Container>

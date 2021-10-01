@@ -2,7 +2,17 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 const Home = () => (
+  
   <div>
+    <h1>Hello, world!</h1>
+    <h1>Hello, world!</h1>
+    <h1>Hello, world!</h1>
+    <h1>Hello, world!</h1>
+    <h1>Hello, world!</h1>
+    <h1>Hello, world!</h1>
+    <h1>Hello, world!</h1>
+    <h1>Hello, world!</h1>
+    <h1>Hello, world!</h1>
     <h1>Hello, world!</h1>
     <p>Welcome to your new single-page application, built with:</p>
     <ul>

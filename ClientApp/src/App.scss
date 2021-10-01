@@ -1,24 +1,11 @@
-a {
-  color: #0366d6;
-}
 
-code {
-  color: #E01A76;
-}
-
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-$body-bg: #000;
-$body-color: #111;
+$body-bg: #141414;
+$body-color: #fff;
 
 $theme-colors: (
   "primary": #0074d9,
   "danger": #ff4136,
-  "custom-color": #900
+  "netflix-dark": #141414
 );
 
 
