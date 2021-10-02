@@ -5,8 +5,11 @@ $body-color: #fff;
 $theme-colors: (
   "primary": #0074d9,
   "danger": #ff4136,
-  "netflix-dark": #141414
+  "netflix-dark": #141414,
+  "netflix-button": #333333,
+  "transparent": transparent
 );
 
+$enable-responsive-font-sizes: true;
 
 @import "../node_modules/bootstrap/scss/bootstrap";

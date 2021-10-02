@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Container, Navbar, NavbarBrand, NavLink } from "reactstrap";
+import { Navbar, NavbarBrand, NavLink } from "reactstrap";
 import './NavNetflix.css';
 
-const NavNetflix = () => {
-  const [show, handleShow] = useState(false);
+const NavNetflix: React.FC = () => {
+  const [showNav, setShowNav] = useState<boolean>(true);
   const transitionNav = () => {
     if (window.scrollY > 100) {
-      handleShow(true);
+      setShowNav(false);
     } else {
-      handleShow(false);
+      setShowNav(true);
     }
   };
   useEffect(() => {
@@ -25,17 +25,17 @@ const NavNetflix = () => {
       dark
       expand="md"
       fixed="top"
-      className={`navnetflix py-0 ${show && 'bg-netflix-dark'}`}
+      className={`navnetflix py-0 justify-content-between bg-netflix-dark ${!showNav && 'bg-transparent'}`}
     >
-      <Container>
-        <NavbarBrand tag={Link} to="/" className="py-0">
-          <img src="580b57fcd9996e24bc43c529.png" height="60" alt="" />
-        </NavbarBrand>
 
-        <NavLink href="/" className="py-0">
-          <img src="hBEe3tdn_400x400.png" height="40" alt="" />
-        </NavLink>
-      </Container>
+      <NavbarBrand tag={Link} to="/" className="py-0">
+        <img src="580b57fcd9996e24bc43c529.png" height="50" alt="" />
+      </NavbarBrand>
+
+      <NavLink href="/" className="py-0">
+        <img src="hBEe3tdn_400x400.png" height="40" alt="" />
+      </NavLink>
+
     </Navbar>
   );
 };

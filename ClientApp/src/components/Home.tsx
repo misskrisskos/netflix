@@ -1,19 +1,10 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import Banner from './Banner';
 
 const Home = () => (
-  
   <div>
-    <h1>Hello, world!</h1>
-    <h1>Hello, world!</h1>
-    <h1>Hello, world!</h1>
-    <h1>Hello, world!</h1>
-    <h1>Hello, world!</h1>
-    <h1>Hello, world!</h1>
-    <h1>Hello, world!</h1>
-    <h1>Hello, world!</h1>
-    <h1>Hello, world!</h1>
-    <h1>Hello, world!</h1>
+    <Banner className="mt-5" />
     <p>Welcome to your new single-page application, built with:</p>
     <ul>
       <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>
