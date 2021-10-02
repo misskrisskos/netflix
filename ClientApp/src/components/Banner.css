@@ -1,5 +1,4 @@
 .banner {
-  background-image: url("/e1hLQ2m.png");
   background-size: cover;
   background-position: center;
   height: 448px;
@@ -19,4 +18,15 @@
     rgb(37, 37, 37, 0.61),
     #141414
   );
+}
+
+.banner .btn-netflix-button:hover {
+  color: #000 !important;
+  background-color: #e6e6e6 !important;
+  border-color: #e6e6e6 !important;
+  transition: all 0.3s;
+}
+
+.banner-desc {
+  width: 25rem;
 }
