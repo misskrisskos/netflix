@@ -38,6 +38,7 @@ const Banner: React.FC<{ className?: string }> = ({ className }) => {
             setMovie(
                 res.data.results[Math.floor(Math.random() * res.data.results.length - 1)]
             );
+            return res;
         }
         fetchdata();
     }, []);
